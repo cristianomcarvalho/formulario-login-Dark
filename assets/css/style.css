@@ -1,0 +1,195 @@
+/* importado a fonte que será utilizada */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+/* criando vairáveis para trabalhar com as cores */
+:root {
+    --color-light-50: #f8fafc;
+    --color-dark-50:  #797984;
+    --colordark-100:  #312d37;
+    --colordark-900: #000;
+
+    --color-blue-50: #081870;
+    --color-blue-100: #2e40a3;
+    --color-blue-200: #505c9e;
+
+    --color-gradient: linear-gradient(90deg, var(--color-blue-50), var(--color-blue-100), var(--color-blue-200));
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* expecifica o tamanho da tela de fundo juntamento com a cor */
+#container {
+    height: 100vh;
+    width: 100%;
+    background: var(--color-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login_form {
+    background-color: var(--color-light-50);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 8px;
+    gap: 30px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
+    height: fit-content;
+    animation: dark-to-ligth 0.3s ease-in-out; 
+}
+/* este comando aorganizam o login e o ícone lua */
+#form_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+/* ajustando a fonte e o tamanho do login */
+#form_header h1 {
+    font-size: 40px;
+    position: relative;
+}
+
+/* criando o sublinhado do login */
+#form_header h1::before {
+    position:absolute;
+    content: '';
+    width: 40%;
+    background-color: var(--color-blue-100);
+    height: 3px;
+    bottom: 10px;
+    border-radius: 5px;
+}
+/* definindo o tamanho do icone lua e mudando a imagem do curso quando passo sobre ele */
+#mode_ico {
+    cursor: pointer;
+    font-size: 20px;
+}
+/* organizando os icones de mídia */
+#social_midia {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* expecifica o tamanho das imagens */
+#social_midia img {
+    width: 42px;
+}
+
+/* aplicando o efeito zoom nos icones de mídia quando passa o mouse */
+#social_midia img:hover{
+    transform: scale(1.2);   
+
+}
+
+/* organizando os inputs */
+#inputs {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* determina o tamanho dos texto de cada input-box  */
+.input-box label {
+    font-size: 14px;
+    color: var(--color-dark-50);
+}
+/* organizar o posicionamento dos inputs*/
+.input-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 3px;
+    cursor: text; /*quando o mouse passa no icone ele fica no formato de texto = I*/
+    border-bottom: 1px solid var(--color-blue-50) /*cria as linhas solidas abaixo da caixa do input */
+}
+
+/* ajustando os icones do caixa input */
+.input-field i {
+    font-size: 18px;
+    color: var(--colordark-900);
+}
+/* ajustando o setup das caixas de texto (input) */
+.input-field input {
+    border: none;
+    background-color: transparent;
+    width: 250px;
+    font-size: 18px;
+    padding: 0px 5px;
+}
+
+/* retirando o retângulo das caixas de texto quando clica para digitar */
+.input-field input:focus {
+    outline: none;
+}
+
+/* ajustando o Forgat */
+#forgot_password a {
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--color-dark-50);
+}
+
+/* quando passar o mouse no forgot muda de cor  */
+#forgot_password a:hover {
+    color: var(--color-blue-50);
+}
+
+/* ajustar o botão Login  */
+#login_button {
+    border: none;
+    background: var(--color-gradient);
+    color: var(--color-light-50);
+    padding: 7px;
+    font-size: 18px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* efeito quando passar o mouse no botão */
+#login_button:hover {
+    transform: scale(1.05);
+}
+
+/* comando para alterar as cores necessarias da página para fazer o modelo dark */
+.dark#login_form  {
+    color: var(--color-light-50);
+    background-color: var(--colordark-100); 
+    animation: ligth-to-dark 0.3s ease-in-out;  
+}
+
+/* mudar a cor dos inputs e dos ícones  */
+.dark#login_form .input-field input,
+.dark#login_form .input-field i {
+    color: var(--color-light-50);
+}
+
+/* para que a mudança de cores não fique muito rápido */
+
+@keyframes dark-to-ligth {
+    0% {
+        background-color: var(--colordark-100);
+    }
+    100% {
+        background-color: var(--color-light-50);
+    }
+}
+
+@keyframes ligth-to-dark {
+    0% {
+        background-color: var(--color-light-50);
+    }
+    100% {
+        background-color: var(--colordark-100);
+    }
+}
